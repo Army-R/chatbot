@@ -1,8 +1,0 @@
-Hola
-Hola, ¿Como estas?
-Bien
-¿Que haces?
-Mal
-¿Por que?
-
-
