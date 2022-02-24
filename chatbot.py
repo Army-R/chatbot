@@ -5,31 +5,27 @@ Created on Tue Feb 22 18:40:29 2022
 
 @author: Army-R
 """
-# Creacion de un Chatbot[https://youtu.be/L2JomWubedE] 
-
-# chatbot.storage.drop() limpia el historial del chatbot
-
-# Importamos las librerias chattboter
-from chatterbot import ChatBot 
+from chatterbot import ChatBot
+#from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot.trainers import ListTrainer
-# ChatterBotCorpusTrainer viene prediseñado
 
-# ESte es el nombre de nuestro chatbot
-chatbot = ChatBot("Mylo")
+# ChatBot name
+chatbot = ChatBot("Pal")
 
-conversation = open("chatbot_wrdlst.txt", "r").readlines()
+conversation = open("chatbot_training.txt", "r").readlines()
 
-# Entrenamos al chatbot
-triner = ListTrainer(chatbot) 
+trainer = ListTrainer(chatbot)
+#trainer = ChatterBotCorpusTrainer(chatbot)
 
-# Aquí se entrenan las respuestas del chatbot
-# El chatterbot.corpuse.spanish, viene con respuestas en español
-triner.train(conversation)
+trainer.train(conversation)
+#trainer.train("chatterbot.corpus.spanish")
 
 # Flujo de comunicacion
 while True:
-   request = input('Me: ') 
-   aswr = chatbot.get_response("request")
-   print("Mylo: ", aswr)
-   
-   
+    try:
+       request = input('Me: ')
+       aswr = chatbot.get_response(request)
+       print("Andrea", aswr)
+
+    except(KeyboardInterrupt, EOFError, SystemExit):
+       break
