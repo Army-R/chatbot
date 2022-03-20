@@ -18,7 +18,7 @@ while True:
     try:
        request = input('Me: ')
        aswr = bot.get_response(request)
-       print("Andrea", aswr)
+       print("Andrea: ", aswr)
 
     except(KeyboardInterrupt, EOFError, SystemExit):
        break
